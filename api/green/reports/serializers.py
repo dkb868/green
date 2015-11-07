@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.green.reports.models import Report, Category
+from reports.models import Report, Category
 
 
 class ReportSerializer(serializers.ModelSerializer):

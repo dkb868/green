@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from api.green.reports.models import Report, Category
-from api.green.reports.serializers import ReportSerializer, CategorySerializer
+from reports.models import Report, Category
+from reports.serializers import ReportSerializer, CategorySerializer
 
 
 class ReportViewSet(viewsets.ModelViewSet):
