@@ -1,0 +1,20 @@
+[
+    {
+    "fields": {
+      "description": "Pollution is the introduction of contaminants into the natural environment that cause adverse change.",
+      "title": "Pollution",
+      "created_at": "2015-11-07T02:05:01Z"
+    },
+    "model": "reports.category",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "description": "Waste includes, but is not limited to, illegal dumping, electronic waste, and marine debris.",
+      "title": "Waste",
+      "created_at": "2015-11-07T02:06:18Z"
+    },
+    "model": "reports.category",
+    "pk": 2
+  }
+]
