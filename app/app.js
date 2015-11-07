@@ -12,7 +12,11 @@ config(['$routeProvider', function($routeProvider) {
   }).when('/form', {
     templateUrl: 'reports/form.html',
     controller: 'formController'
-  }).otherwise({
+  }).when('/landing', {
+    templateUrl: 'landing/landing.html',
+    controller: 'landingController'
+  })
+  .otherwise({
     redirectTo: '/landing'
   });
 
