@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('listView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
+  $routeProvider.when('/list', {
+    templateUrl: 'reports/list.html',
     controller: 'listController'
   });
 }])
