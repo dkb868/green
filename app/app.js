@@ -3,8 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('green', [
   'ngRoute',
-  'reportsView',
-  'myApp.version'
+  'reportsView'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/list', {
@@ -13,7 +12,11 @@ config(['$routeProvider', function($routeProvider) {
   }).when('/form', {
     templateUrl: 'reports/form.html',
     controller: 'formController'
-  }).otherwise({
+  }).when('/landing', {
+    templateUrl: 'landing/landing.html',
+    controller: 'landingController'
+  })
+  .otherwise({
     redirectTo: '/landing'
   });
 
