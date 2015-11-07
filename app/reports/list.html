@@ -1,12 +1,31 @@
-<div ng-controller="listController">
-  <h1>List of Reports</h1>
-  <div ng-repeat="item in list.data">
-    <p>{{ item }}</p>
+<div id="list" ng-controller="listController">
+  <h1>Issues</h1>
+  <div>
+    <p>{{ list }}</p>
   </div>
-  <div ng-repeat="item in list.data">
-    <p>{{ item.title }}</p>
-    <p>{{ item.description }}</p>
-    <p>{{ "lat: " + item.latitude }}</p>
-    <p>{{ "long: " + item.longitude }}</p><br/>
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+
+      <div class="panel-body">
+        <table class="table">
+
+          <thead>
+            <tr>
+              <th id="issues">Most Reported Issues</th>
+            </tr>
+          </thead>
+
+          <tbody ng-repeat="item in list.data">
+            <tr>
+              <td class="title"><strong>{{ item.title + " " + $index }}</strong></td>
+            </tr>
+            <tr>
+              <td class="description">{{ item.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
   </div>
 </div>
