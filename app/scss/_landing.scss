@@ -1,3 +1,23 @@
+#landing, #info {
+  h1, h2, p {
+    color: white;
+    text-align: center;
+  }
+}
+
 #landing {
-  height: 100vh;
+  background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%),
+              url('images/landing.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 60vh;
+
+  h1 { padding-top: 100px; }
+  p { padding-top: 20px; }
+}
+
+#info {
+  background-color: $dark-green;
+  height: 500px;
+
+  h2 { padding-top: 30px; }
 }
