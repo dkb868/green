@@ -5,12 +5,18 @@
     <title>Home Page</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="app/app.js"></script>
+    <script src="js/app.js"></script>
   </head>
   <body ng-controller="mainController">
-    {{ list }}
-    <div ng-repeat="item in list">
+    <h1>List of Reports</h1>
+    <div ng-repeat="item in list.data">
       <p>{{ item }}</p>
+    </div>
+    <div ng-repeat="item in list.data">
+      <p>{{ item.title }}</p>
+      <p>{{ item.description }}</p>
+      <p>{{ "lat: " + item.latitude }}</p>
+      <p>{{ "long: " + item.longitude }}</p><br/>
     </div>
   </body>
 </html>
