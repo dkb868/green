@@ -4,8 +4,9 @@
 angular.module('green', [
   'ngRoute',
   'listView',
+  'landingView',
   'green.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/list'});
+  $routeProvider.otherwise({redirectTo: '/landing'});
 }]);
