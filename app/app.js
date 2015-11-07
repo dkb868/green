@@ -13,7 +13,7 @@ config(['$routeProvider', function($routeProvider) {
     templateUrl: 'reports/form.html',
     controller: 'formController'
   }).otherwise({
-    redirectTo: '/list'
+    redirectTo: '/landing'
   });
 
 }]);
