@@ -4,10 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
     <title>Simple Map</title>
-    <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
+      <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <style>
+      <style>
       html, body {
         height: 100%;
         width: 100%;
@@ -17,6 +16,8 @@
       #map {
           height:500px;
           width:500px;
+          margin-left: auto;
+          margin-right:auto;
       }
       body {
         background-color: #FFF;
@@ -32,13 +33,13 @@
           "esri/tasks/query", "esri/geometry/Circle",
           "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",
           "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleFillSymbol", "esri/renderers/SimpleRenderer",
-          "esri/config", "esri/Color", "dojo/dom", "dojo/domReady!"
+          "esri/config", "esri/Color","dojo/dom-attr", "dojo/dom", "dojo/domReady!"
       ], function(
               Map, FeatureLayer,
               Query, Circle,
               Graphic, InfoTemplate, SimpleMarkerSymbol,
               SimpleLineSymbol, SimpleFillSymbol, SimpleRenderer,
-              esriConfig, Color, dom
+              esriConfig, Color, domAttr, dom
       ) {
           esriConfig.defaults.io.proxyUrl = "/proxy/";
         map = new Map("map", {
@@ -68,6 +69,10 @@
             map.infoWindow.hide();
             var graphic = new Graphic(circle, circleSymb);
             map.graphics.add(graphic);
+            domAttr.set("latitude","value",evt.mapPoint.y);
+            console.log(domAttr.get("latitude", "value"));
+            domAttr.set("longitude", "value", evt.mapPoint.x);
+            console.log(domAttr.get("longitude","value"));
 
         })
       });
@@ -76,7 +81,7 @@
 
   <body>
     <h1>Make a report here!</h1>
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="http://198.199.106.220/reports/" method="post">
         <fieldset>
 
             <!-- Form Name -->
@@ -84,6 +89,7 @@
             <!-- Map -->
             <div class="form-group">
                 <div id="map"></div>
+
             </div>
             <!-- Text input-->
             <div class="form-group">
@@ -107,10 +113,17 @@
                 <label class="col-md-4 control-label" for="category">Category</label>
                 <div class="col-md-4">
                     <select id="category" name="category" class="form-control">
-                        <option value="1">Waste</option>
-                        <option value="2">Pollution</option>
+                        <option value="1">Pollution</option>
+                        <option value="2">Waste</option>
                     </select>
                 </div>
+            </div>
+            <div class="form-group">
+                    <input id="latitude" name="latitude" placeholder="latitude" class="form-control input-md" type="hidden">
+
+            </div>
+            <div class="form-group">
+                    <input id="longitude" name="longitude" placeholder="longitude" class="form-control input-md" type="hidden">
             </div>
 
             <!-- Button -->
