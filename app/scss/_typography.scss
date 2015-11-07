@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text);
+
+$display-font: 'Montserrat', sans-serif;
+$base-font-family: 'Crimson Text', serif;
+
+h1, h2, h3, a {
+  font-family: $display-font;
+}
+
+p {
+  font-family: $base-font-family;
+}
