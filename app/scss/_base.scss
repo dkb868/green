@@ -1,3 +1,15 @@
+// Variables
+
+$dark-green: #3e5c0a;
+
+// Universal styling
+
 body {
+  background-color: dark-green;
+  margin: 0;
   padding-top: 50px;
+}
+
+h1, h2, h3 {
+  margin: 0;
 }
