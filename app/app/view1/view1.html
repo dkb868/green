@@ -1,0 +1,12 @@
+<div ng-controller="listController">
+  <h1>List of Reports</h1>
+  <div ng-repeat="item in list.data">
+    <p>{{ item }}</p>
+  </div>
+  <div ng-repeat="item in list.data">
+    <p>{{ item.title }}</p>
+    <p>{{ item.description }}</p>
+    <p>{{ "lat: " + item.latitude }}</p>
+    <p>{{ "long: " + item.longitude }}</p><br/>
+  </div>
+</div>
