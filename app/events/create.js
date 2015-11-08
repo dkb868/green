@@ -1,6 +1,10 @@
 'use strict';
 
-angular.module('createView', ['ngRoute'])
+angular.module('eventsView', ['ngRoute'])
 
-.controller('createController', ['$scope', '$http', function($scope, $http) {
+.controller('eventsController', ['$scope', '$http', function($scope, $http) {
+}])
+
+
+.controller('joinController', ['$scope', '$http', function($scope, $http) {
 }])

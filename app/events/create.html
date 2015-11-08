@@ -1,60 +1,26 @@
-<form action="/events/" method="POST" enctype="multipart/form-data" class="form-horizontal" novalidate>
+<br><br>
+<h1 style="text-align:center"> Take Action </h1><br>
+<h3 style="text-align:center">Let people around you know that you want to take action, and fix your community together.</h3>
+<br>
+<br>
+<form  method="POST" enctype="multipart/form-data" class="form-horizontal" action="http://198.199.106.220/events/">
                           <fieldset>
   <div class="form-group">
   
-    <label class="col-sm-2 control-label ">
+    <label class="col-sm-4 control-label ">
       Report
     </label>
   
 
-  <div class="col-sm-10">
+  <div class="col-sm-4">
     <select class="form-control" name="report">
-      
-      
           
-            <option value="1"  >Report object</option>
+            <option value="1"> Litter at the beach</option>     
           
-      
+            <option value="2"  >Broken water pipe</option>    
           
-            <option value="2"  >Report object</option>
-          
-      
-          
-            <option value="3"  >Report object</option>
-          
-      
-          
-            <option value="4"  >Report object</option>
-          
-      
-          
-            <option value="5"  >Report object</option>
-          
-      
-          
-            <option value="6"  >Report object</option>
-          
-      
-          
-            <option value="7"  >Report object</option>
-          
-      
-          
-            <option value="8"  >Report object</option>
-          
-      
-          
-            <option value="9"  >Report object</option>
-          
-      
-          
-            <option value="10"  >Report object</option>
-          
-      
-          
-            <option value="11"  >Report object</option>
-          
-      
+            <option value="3"  >Polluted River</option>
+            
     </select>
 
     
@@ -68,12 +34,12 @@
   
     <div class="form-group ">
   
-    <label class="col-sm-2 control-label ">
+    <label class="col-sm-4 control-label ">
       Title
     </label>
   
 
-  <div class="col-sm-10">
+  <div class="col-sm-4">
     <input name="title" class="form-control" type="text"  >
 
     
@@ -87,12 +53,12 @@
   
     <div class="form-group ">
   
-    <label class="col-sm-2 control-label ">
+    <label class="col-sm-4 control-label ">
       Description
     </label>
   
 
-  <div class="col-sm-10">
+  <div class="col-sm-4">
     <textarea name="description" class="form-control"  ></textarea>
 
     
@@ -106,34 +72,31 @@
   
     <div class="form-group ">
   
-    <label class="col-sm-2 control-label ">
+    <label class="col-sm-4 control-label ">
       Date
     </label>
   
 
-  <div class="col-sm-10">
-    <input name="date" class="form-control" type="datetime-local"  >
+  <div class="col-sm-4">
+    <input name="date" class="form-control" type="datetime-local" value="2015-11-07T13:11" >
+    <br><br>
 
     
 
-    
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                     
   </div>
+  
 </div>
 
   
 
 
-                            <div class="form-actions">
-                              <button class="btn btn-primary" title="Make a POST request on the Event List resource">Submit</button>
-                            </div>
+
                           </fieldset>
                         </form>
                       
-                    </div>
+               
                   
 
-                  <div class="tab-pane" id="post-generic-content-form">
-                    
-                      <form action="/events/" method="POST" class="form-horizontal">
-                        <fieldset>
-                          
+   
