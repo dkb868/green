@@ -1,0 +1,31 @@
+// Variables
+
+$dark-green: #4CAF50;
+$light-green: #C8E6C9;
+
+$light-gray: #f4f4f4;
+$medium-gray: #999999;
+$dark-gray: #444444;
+
+// Universal styling
+
+body {
+  background-color: $light-gray;
+  margin: 0;
+  padding-top: 50px;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+// Flash messages
+
+.flash-message {
+  position: fixed;
+  top: 60px;
+  right: 15px;
+  z-index: 100;
+}

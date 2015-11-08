@@ -1,0 +1,42 @@
+<div id="post-form" ng-controller='formController'>
+
+  <div class="header">
+    <div class="container">
+      <h3>Make a new Report!</h3>
+      <p>
+        These reports are used to find patterns and raise awareness about an
+        especially harmful environmental issue in your area.
+      </p>
+    </div>
+  </div>
+
+  <div class="report-form">
+      <div class="container">
+
+        <label><h3>Subject</h3>
+          <input id="#subject" ng-model="reportData.subject">
+        </label>
+
+        <label><h3>Description</h3>
+          <textarea name="description", cols="40" rows="3" ng-model="reportData.description"></textarea>
+        </label>
+
+        <label><h3>Category</h3></label>
+        <select class="col-md-2 col-md-offset-5" name="categorySelect" ng-model="reportData.category">
+          <option value="1">Air Pollution</option>
+          <option value="2">Damage</option>
+          <option value="3">Flooding</option>
+          <option value="4">Infestation</option>
+          <option value="5">Obstruction</option>
+          <option value="6">Waste</option>
+          <option value="7">Water Pollution</option>
+        </select>
+
+      </div>
+  </div>
+
+  <div flash-message="5000"></div>
+
+  <esri-map id="map" center="map.center" zoom="map.zoom" basemap="topo" load="onMapLoad" ng-click="postReport()">
+  </esri-map>
+</div>

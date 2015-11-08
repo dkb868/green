@@ -1,0 +1,77 @@
+#landing, #info, #info2, #join, #closing {
+  h1, h2, p {
+    color: white;
+    text-align: center;
+  }
+}
+
+#landing {
+  background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,1) 100%),
+              url('images/landing.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+
+  h1 { padding-top: 100px; }
+  p { padding-top: 20px; }
+}
+
+#info {
+  background-color: $dark-green; 
+  height: 60vh; 
+
+  h2 { padding-top: 30px; }
+  p { padding-bottom: 50px; }
+}
+
+#join {
+  background-color: $dark-green; 
+  height: auto; 
+
+  h2 { padding-top: 30px; }
+  p { padding-bottom: 50px; }
+}
+
+#info2 {
+  background-color: $light-green;
+  height: auto;
+
+  h2 { padding-top: 30px; }
+}
+
+#closing{
+ background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%,rgba(0,0,0,1) 100%),
+              url('images/closing.jpg') no-repeat center center fixed;
+ background-size: cover;
+ height: 100vh;
+}
+
+
+.wrapper {
+    text-align: center;
+
+}
+
+.wrapper2 {
+    min-width:400px;
+    max-width:400px;
+    text-align:center;
+    margin:0 auto;
+}
+
+.event{
+    min-width:400px;
+    max-width:400px;
+    text-align: center;
+    margin:0 auto;
+}
+
+table.mytable {	
+    border: 0px solid black;
+    padding: 100px;
+	td{ padding-right: 80px;
+	    padding-left: 80px;
+            padding-top: 40px;
+	    text-align: center; }
+	th{ text-align: center;
+	    font-size: 1.8em; }
+}
