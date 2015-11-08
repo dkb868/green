@@ -7,9 +7,11 @@
   "private": true,
   "dependencies": {
     "angular": "~1.4.0",
-    "angular-route": "~1.4.0",
+    "angular-esri-map": "~1.0.0-beta.5",
+    "angular-flash-alert": "~1.1.1",
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
+    "angular-route": "~1.4.0",
     "html5-boilerplate": "~5.2.0"
   }
 }
