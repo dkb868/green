@@ -1,4 +1,4 @@
-#landing, #info, #info2 {
+#landing, #info, #info2, #closing {
   h1, h2, p {
     color: white;
     text-align: center;
@@ -27,6 +27,13 @@
   height: 80vh;
 
   h2 { padding-top: 30px; }
+}
+
+#closing{
+ background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%),
+              url('images/closing.jpg') no-repeat center center fixed;
+ background-size: cover;
+ height: 100vh;
 }
 .wrapper {
     text-align: center;
