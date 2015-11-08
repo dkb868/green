@@ -1,4 +1,4 @@
-#landing, #info, #info2, #closing {
+#landing, #info, #info2, #join, #closing {
   h1, h2, p {
     color: white;
     text-align: center;
@@ -23,9 +23,17 @@
   p { padding-bottom: 50px; }
 }
 
+#join {
+  background-color: $dark-green; 
+  height: auto; 
+
+  h2 { padding-top: 30px; }
+  p { padding-bottom: 50px; }
+}
+
 #info2 {
   background-color: $light-green;
-  height: 80vh;
+  height: auto;
 
   h2 { padding-top: 30px; }
 }
@@ -50,16 +58,11 @@
     margin:0 auto;
 }
 
-div.box {
-  margin:0 auto;
-  min-width:400px;
+.event{
+    min-width:400px;
     max-width:400px;
-  font-weight: bold;
-  text-align: center;
-  background-color: #000000;
-  border: 1px solid black;
-  opacity:0.6;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
+    text-align: center;
+    margin:0 auto;
 }
 
 table.mytable {	
