@@ -134,7 +134,8 @@ angular.module('reportsView', ['ngRoute'])
 
 $scope.countIssues = function(data) {
   var issueCount = {};
-  
+  var arr = [];
+
   data.forEach(function(issue) {
     var checkIssue = issue.attributes.Category
     if(checkIssue in issueCount) {
@@ -143,11 +144,21 @@ $scope.countIssues = function(data) {
       issueCount[checkIssue] = 1;
     }
   });
+  //bubbleSort(issueCount);
 
-  http://localhost:8000/app/#/list
+  for (var category in issueCount) {
+    arr.push([category, issueCount[category]]);
+  }
 
-  function bubbleSort(issueCount) {
-    var data = issueCount;
+  arr.sort(function(a, b) {
+    return b[1] - a[1];
+  });
+
+  console.log(arr);
+
+
+  /*
+  function bubbleSort(data) {
     var keys = Object.keys(data);
 
     console.log("keys: " + keys);
@@ -158,10 +169,10 @@ $scope.countIssues = function(data) {
       b = temp;
     }
 
-    console.log(issueCount['Damage']);
+    console.log(data['Damage']);
     for (var i = 0; i < keys.length - 1; i++) {
       for (var j = 0; j < keys.length - 1; i++) {
-        if ( issueCount[keys[i]] > issueCount[keys[j]]) {
+        if (data[keys[i]] > data[keys[j]]) {
           // swap here
           console.log('swap happens!');
           swap(keys[i], keys[j])
@@ -171,9 +182,10 @@ $scope.countIssues = function(data) {
 
     console.log('after fors: ' + keys);
   }
+    */
 
 
-  return issueCount;
+  return arr;
 };
 
 

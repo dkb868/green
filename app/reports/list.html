@@ -4,14 +4,15 @@
 
   <h1>Issues</h1>
 
-  <div>
+  <div ng-hide="true">
     <p><span ng-bind="results"></span></p>
     <div ng-repeat="x in results">
       <p><span ng-bind="x.attributes.Category"></span></p>
     </div>
-    <p>{{ countIssues(results) }}</p>
+    <p><span ng-bind="countIssues(results)"></span></p>
+    <p>{{ arr }}</p>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-6 col-lg-offset-3">
     <div class="panel panel-default">
 
       <div class="panel-body">
@@ -23,9 +24,9 @@
             </tr>
           </thead>
 
-          <tbody ng-repeat="(key, value) in countIssues(results)">
+          <tbody ng-repeat="thing in countIssues(results)">
             <tr>
-              <td class="title">{{ value }} <strong>{{ key }}</strong></td>
+              <td class="title"><strong>{{ thing[1] }}</strong> {{ thing[0] }}</td>
             </tr>
           </tbody>
         </table>
