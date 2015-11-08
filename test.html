@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!--The viewport meta tag is used to improve the presentation and behavior of the samples 
+    <!--The viewport meta tag is used to improve the presentation and behavior of the samples
       on iOS devices-->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
     <title>Select with feature layer</title>
@@ -30,7 +30,7 @@
     <script>
       var map;
       require([
-        "esri/map", "esri/layers/FeatureLayer", 
+        "esri/map", "esri/layers/FeatureLayer",
         "esri/tasks/query", "esri/geometry/Circle",
         "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",
         "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleFillSymbol", "esri/renderers/SimpleRenderer",
@@ -47,14 +47,14 @@
         // this should not be needed as nearly all query & select functions are performed on the client
         esriConfig.defaults.io.proxyUrl = "/proxy/";
 
-        map = new Map("mapDiv", { 
+        map = new Map("mapDiv", {
           basemap: "topo",
           center: [-95.249, 38.954],
           zoom: 14,
           slider: false
         });
-        
-        //add the census block points in on demand mode. Note that an info template has been defined so when 
+
+        //add the census block points in on demand mode. Note that an info template has been defined so when
         //selected features are clicked a popup window will appear displaying the content defined in the info template.
         var featureLayer = new FeatureLayer("http://services5.arcgis.com/KYP7I6rUfwT2lRav/arcgis/rest/services/Environmental_Issues/FeatureServer/0",
                                             {mode: FeatureLayer.MODE_SELECTION,
@@ -62,23 +62,23 @@
 
         // selection symbol used to draw the selected census block points within the buffer polygon
         var symbol = new SimpleMarkerSymbol(
-          SimpleMarkerSymbol.STYLE_CIRCLE, 
-          12, 
+          SimpleMarkerSymbol.STYLE_CIRCLE,
+          12,
           new SimpleLineSymbol(
-            SimpleLineSymbol.STYLE_NULL, 
-            new Color([247, 34, 101, 0.9]), 
+            SimpleLineSymbol.STYLE_NULL,
+            new Color([247, 34, 101, 0.9]),
             1
           ),
           new Color([207, 34, 171, 0.5])
         );
-       // featureLayer.setSelectionSymbol(symbol); 
-        
+       // featureLayer.setSelectionSymbol(symbol);
+
         //make unselected features invisible
         var nullSymbol = new SimpleMarkerSymbol().setSize(0);
         //featureLayer.setRenderer(new SimpleRenderer(nullSymbol));
-        
+
         map.addLayer(featureLayer);
-        
+
         var circleSymb = new SimpleFillSymbol(
           SimpleFillSymbol.STYLE_NULL,
           new SimpleLineSymbol(
@@ -126,14 +126,15 @@
           query.objectIds = inBuffer;
           //use a fast objectIds selection query (should not need to go to the server)
           featureLayer.selectFeatures(query, FeatureLayer.SELECTION_NEW, function(results){
-          
-          // RESULTS HERE 
+
+          // RESULTS HERE
             var totalPopulation = sumPopulation(results);
+            console.log(results);
             var r = "";
             r = "<b>The total Census Block population within the buffer is <i>" + totalPopulation + "</i>.</b>";
           });
         }
-        
+
         function sumPopulation(features) {
           var popTotal = 0;
           for (var x = 0; x < features.length; x++) {
@@ -150,4 +151,3 @@
     <div id="mapDiv"></div>
   </body>
 </html>
-

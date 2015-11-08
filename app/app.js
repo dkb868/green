@@ -9,7 +9,7 @@ angular.module('green', [
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/list', {
     templateUrl: 'reports/list.html',
-    controller: 'listController'
+    controller: 'mapController'
   }).when('/form', {
     templateUrl: 'reports/form.html',
     controller: 'formController'

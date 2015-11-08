@@ -1,7 +1,15 @@
-<div id="list" ng-controller="listController">
+<div id="list">
+  <span id="messages">Click on the map to select census block points within 1 mile.</span>
+  <div id="mapDiv"></div>
+
   <h1>Issues</h1>
+
   <div>
-    <p>{{ list }}</p>
+    <p><span ng-bind="results"></span></p>
+    <div ng-repeat="x in results">
+      <p><span ng-bind="x.attributes.Category"></span></p>
+    </div>
+    <p>{{ countIssues(results) }}</p>
   </div>
   <div class="col-lg-6">
     <div class="panel panel-default">
@@ -15,12 +23,9 @@
             </tr>
           </thead>
 
-          <tbody ng-repeat="item in list.data">
+          <tbody ng-repeat="(key, value) in countIssues(results)">
             <tr>
-              <td class="title"><strong>{{ item.title + " " + $index }}</strong></td>
-            </tr>
-            <tr>
-              <td class="description">{{ item.description }}</td>
+              <td class="title">{{ value }} <strong>{{ key }}</strong></td>
             </tr>
           </tbody>
         </table>

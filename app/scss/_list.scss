@@ -1,3 +1,24 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+#mapDiv {
+  max-height: 600px;
+}
+
+#messages {
+  background-color: #fff;
+  box-shadow: 0 0 5px #888;
+  font-size: 1.1em;
+  max-width: 15em;
+  padding: 0.5em;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 40;
+}
+
 #list {
   padding-top: 10px;
   font-family: garamond;
