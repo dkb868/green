@@ -4,7 +4,8 @@
 angular.module('green', [
   'ngRoute',
   'reportsView',
-  'landingView'
+  'landingView',
+  'createView'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/list', {
@@ -16,8 +17,10 @@ config(['$routeProvider', function($routeProvider) {
   }).when('/landing', {
     templateUrl: 'landing/landing.html',
     controller: 'landingController'
-  })
-  .otherwise({
+  }).when('/event', {
+    templateUrl: 'events/create.html',
+    controller: 'createController'
+    }).otherwise({
     redirectTo: '/landing'
   });
 
