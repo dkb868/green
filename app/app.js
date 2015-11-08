@@ -5,8 +5,7 @@ angular.module('green', [
   'ngRoute',
   'reportsView',
   'landingView',
-
-  
+  'eventsView'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/list', {
