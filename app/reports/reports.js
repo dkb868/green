@@ -10,7 +10,6 @@ angular.module('reportsView', ['ngRoute', 'esri.map', 'flash'])
     })
 }])
 
-<<<<<<< HEAD
 .controller('mapController', ["$scope", function($scope) {
 
   $scope.map;
