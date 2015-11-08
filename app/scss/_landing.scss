@@ -6,10 +6,10 @@
 }
 
 #landing {
-  background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%),
+  background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,1) 100%),
               url('images/landing.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 93vh;
+  height: 100vh;
 
   h1 { padding-top: 100px; }
   p { padding-top: 20px; }
@@ -17,9 +17,10 @@
 
 #info {
   background-color: $dark-green; 
-  height: 50vh; 
+  height: 60vh; 
 
   h2 { padding-top: 30px; }
+  p { padding-bottom: 50px; }
 }
 
 #info2 {
@@ -30,11 +31,13 @@
 }
 
 #closing{
- background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%),
+ background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%,rgba(0,0,0,1) 100%),
               url('images/closing.jpg') no-repeat center center fixed;
  background-size: cover;
  height: 100vh;
 }
+
+
 .wrapper {
     text-align: center;
 
@@ -45,6 +48,18 @@
     max-width:400px;
     text-align:center;
     margin:0 auto;
+}
+
+div.box {
+  margin:0 auto;
+  min-width:400px;
+    max-width:400px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #000000;
+  border: 1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
 }
 
 table.mytable {	
