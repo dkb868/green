@@ -1,4 +1,4 @@
-#landing, #info {
+#landing, #info, #info2, #closing {
   h1, h2, p {
     color: white;
     text-align: center;
@@ -9,15 +9,51 @@
   background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%),
               url('images/landing.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 60vh;
+  height: 93vh;
 
   h1 { padding-top: 100px; }
   p { padding-top: 20px; }
 }
 
 #info {
-  background-color: $dark-green;
-  height: 500px;
+  background-color: $dark-green; 
+  height: 50vh; 
 
   h2 { padding-top: 30px; }
+}
+
+#info2 {
+  background-color: $light-green;
+  height: 80vh;
+
+  h2 { padding-top: 30px; }
+}
+
+#closing{
+ background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%),
+              url('images/closing.jpg') no-repeat center center fixed;
+ background-size: cover;
+ height: 100vh;
+}
+.wrapper {
+    text-align: center;
+
+}
+
+.wrapper2 {
+    min-width:400px;
+    max-width:400px;
+    text-align:center;
+    margin:0 auto;
+}
+
+table.mytable {	
+    border: 0px solid black;
+    padding: 100px;
+	td{ padding-right: 80px;
+	    padding-left: 80px;
+            padding-top: 40px;
+	    text-align: center; }
+	th{ text-align: center;
+	    font-size: 1.8em; }
 }
