@@ -231,6 +231,7 @@ $scope.countIssues = function(data) {
           $http.post('http://198.199.106.220/reports/', reportAttributes)
             .then(function(response) {
               console.log(response);
+              $location.url('/list')
             }, function(response) {
               console.log('Request failed!');
               console.log(response.data);
