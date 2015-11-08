@@ -1,0 +1,30 @@
+#post-form {
+  background-color: $dark-green;
+
+  .header { height: 125px; }
+
+  h3, p {
+    color: white;
+    text-align: center;
+  }
+
+  h3 { padding-top: 30px; }
+  p { padding-top: 15px; }
+
+  .report-form {
+    background-color: $light-gray;
+    height: 450px;
+
+    h3 { color: $medium-gray; }
+
+    label {
+      display: block;
+      text-align: center;
+      line-height: 150%;
+    }
+
+    input, textarea, select {
+      margin-top: 25px;
+    }
+  }
+}

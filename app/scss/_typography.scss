@@ -7,8 +7,9 @@ h1, h2, h3, a {
   font-family: $display-font;
 }
 
-p {
+p, input, textarea {
   font-family: $base-font-family;
   font-size: 1.2em;
   line-height: 1.2em;
+  font-weight: normal;
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('reportsView', ['ngRoute'])
+angular.module('reportsView', ['ngRoute', 'esri.map', 'flash'])
 
 .controller('listController', ["$scope", "$http", function($scope, $http) {
   $http.get('http://198.199.106.220/reports/')
@@ -10,6 +10,7 @@ angular.module('reportsView', ['ngRoute'])
     })
 }])
 
+<<<<<<< HEAD
 .controller('mapController', ["$scope", function($scope) {
 
   $scope.map;
@@ -156,35 +157,6 @@ $scope.countIssues = function(data) {
 
   console.log(arr);
 
-
-  /*
-  function bubbleSort(data) {
-    var keys = Object.keys(data);
-
-    console.log("keys: " + keys);
-
-    function swap(a, b) {
-      var temp = a;
-      a = b;
-      b = temp;
-    }
-
-    console.log(data['Damage']);
-    for (var i = 0; i < keys.length - 1; i++) {
-      for (var j = 0; j < keys.length - 1; i++) {
-        if (data[keys[i]] > data[keys[j]]) {
-          // swap here
-          console.log('swap happens!');
-          swap(keys[i], keys[j])
-        }
-      }
-    }
-
-    console.log('after fors: ' + keys);
-  }
-    */
-
-
   return arr;
 };
 
@@ -192,55 +164,80 @@ $scope.countIssues = function(data) {
 }])
 
 
-/*
-.controller('formController', ["$scope", function($scope) {
-  require([
-    "esri/map", "esri/layers/FeatureLayer",
-    "esri/tasks/query", "esri/geometry/Circle",
-    "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",
-    "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleFillSymbol", "esri/renderers/SimpleRenderer",
-    "esri/config", "esri/Color", "dojo/dom-attr", "dojo/dom", "dojo/domReady!"
-  ], function(
-    Map, FeatureLayer,
-    Query, Circle,
-    Graphic, InfoTemplate, SimpleMarkerSymbol,
-    SimpleLineSymbol, SimpleFillSymbol, SimpleRenderer,
-    esriConfig, Color, domAttr, dom
-  ) {
-    esriConfig.defaults.io.proxyUrl = "/proxy/";
-    map = new Map("map", {
-      basemap: "topo", //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
-      center: [-122.45, 37.75], // longitude, latitude
-      zoom: 13
-    });
-    var circleSymb = new SimpleFillSymbol(
-      SimpleFillSymbol.STYLE_NULL,
-      new SimpleLineSymbol(
-        SimpleLineSymbol.STYLE_SHORTDASHDOTDOT,
-        new Color([105, 105, 105]),
-        2
-      ), new Color([255, 255, 0, 0.25])
-    );
-    var circle;
-    map.on("click", function(evt) {
-      // GET LAT LONG HERE
-      console.log("x: " + evt.mapPoint.x + " y: " + evt.mapPoint.y);
-      circle = new Circle({
-        center: evt.mapPoint,
-        geodesic: true,
-        radius: 0.1,
-        radiusUnit: "esriMiles"
-      });
-      map.graphics.clear();
-      map.infoWindow.hide();
-      var graphic = new Graphic(circle, circleSymb);
-      map.graphics.add(graphic);
-      domAttr.set("latitude", "value", evt.mapPoint.y);
-      console.log(domAttr.get("latitude", "value"));
-      domAttr.set("longitude", "value", evt.mapPoint.x);
-      console.log(domAttr.get("longitude", "value"));
-    })
-  });
+.controller('formController', ['$scope', '$http', 'Flash', function($scope, $http, Flash) {
 
+  $scope.reportData = {
+    subject: '',
+    description: '',
+    category: ''
+  };
+
+  $scope.map = {
+    center: {
+      lng: -121.747,
+      lat: 37.669
+    },
+    zoom: 8,
+    loaded: false
+  };
+
+  $scope.onMapLoad = function(map) {
+    $scope.map.loaded = true;
+
+    require([
+      'esri/layers/FeatureLayer',
+      'esri/graphic',
+      'esri/symbols/SimpleMarkerSymbol',
+      'esri/Color',
+      'esri/tasks/QueryTask',
+      'esri/tasks/query'
+    ], function(FeatureLayer, Graphic, SimpleMarkerSymbol, Color, QueryTask, Query) {
+      var reportLayer = new FeatureLayer('http://services5.arcgis.com/pD3indDyL3BSXr6X/arcgis/rest/services/Environmental_Issue_Tracker/FeatureServer/0', {
+        mode: FeatureLayer.MODE_ONDEMAND,
+        outFields: ['*'],
+        id: 'reportLayer'
+      });
+
+      map.addLayers([reportLayer]);
+
+      $scope.postReport = function() {
+
+        console.log($scope.reportData.subject);
+
+        var esriReportAttributes = {
+          subject: $scope.reportData.subject,
+          description: $scope.reportData.description,
+          category: $scope.reportData.category
+        }
+
+        var reportGraphic = new Graphic(event.mapPoint, new SimpleMarkerSymbol(new Color('red')), esriReportAttributes);
+
+        if (!$scope.reportData.subject.length
+            || !$scope.reportData.description.length
+            || !$scope.reportData.category.length) {
+
+          Flash.create('danger', 'Looks like you left some form fields blank!', 'flash-message');
+        } else {
+          Flash.create('success', 'Report created!', 'flash-message');
+          reportLayer.applyEdits([reportGraphic]);
+
+          var reportAttributes = {
+            title: esriReportAttributes.subject,
+            description: esriReportAttributes.description,
+            latitude: event.mapPoint.getLatitude(),
+            longitude: event.mapPoint.getLongitude(),
+            category: esriReportAttributes.category
+          }
+
+          $http.post('http://198.199.106.220/reports/', reportAttributes)
+            .then(function(response) {
+              console.log(response);
+            }, function(response) {
+              console.log('Request failed!');
+              console.log(response.data);
+            });
+        }
+      }
+    });
+  }
 }]);
-*/
